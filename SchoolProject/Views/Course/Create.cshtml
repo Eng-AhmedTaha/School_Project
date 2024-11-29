@@ -1,0 +1,48 @@
+﻿@model SchoolProject.Models.Course
+
+@{
+    ViewData["Title"] = "Create Course";
+}
+
+<h2 class="mb-4">Create Course</h2>
+
+<form asp-controller="Course" asp-action="Create" enctype="multipart/form-data" method="post" class="needs-validation">
+    <!-- عرض الأخطاء العامة -->
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+    <div class="row">
+        <!-- حقل Name -->
+        <div class="col-md-6 mb-3">
+            <label asp-for="Name" class="form-label">Course Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter course name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+    
+        <!-- حقل TeacherId -->
+        <div class="col-md-6 mb-3">
+            <label asp-for="TeacherId" class="form-label">Teacher ID</label>
+            <input asp-for="TeacherId" class="form-control" placeholder="Enter teacher ID" />
+            <span asp-validation-for="TeacherId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <!-- حقل CourseCapacity -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="CourseCapacity" class="form-label">Course Capacity</label>
+            <input asp-for="CourseCapacity" class="form-control" placeholder="Enter course capacity (0-25)" />
+            <span asp-validation-for="CourseCapacity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <!-- أزرار الإرسال والإلغاء -->
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
